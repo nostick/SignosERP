@@ -66,7 +66,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <!-- BEGIN CONTAINER -->
     <div class="page-container">
-    @include('layouts.side_nav')
+        @include('layouts.side_nav')
+
         <!-- BEGIN CONTENT -->
         <div class="page-content-wrapper">
             <!-- BEGIN CONTENT BODY -->

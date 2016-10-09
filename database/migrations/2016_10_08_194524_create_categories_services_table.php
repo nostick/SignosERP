@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateResponsiblesTable extends Migration
+class CreateCategoriesServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +15,10 @@ class CreateResponsiblesTable extends Migration
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
 
-        Schema::create('responsibles', function (Blueprint $table) {
+        Schema::create('categories_services', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('social_rason');
-            $table->string('cuit');
-            $table->string('address');
+            $table->string('name');
+            $table->string('slug');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });
@@ -34,6 +33,6 @@ class CreateResponsiblesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('responsibles');
+        Schema::drop('categories_services');
     }
 }

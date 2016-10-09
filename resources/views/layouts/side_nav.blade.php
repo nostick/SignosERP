@@ -39,16 +39,17 @@
                 </form>
                 <!-- END RESPONSIVE QUICK SEARCH FORM -->
             </li>
-            <li class="nav-item  start active">
+            <li class="nav-item start active open">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
                     <span class="title">Administracion</span>
-                    <span class="arrow"></span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
                 </a>
                 <ul class="sub-menu">
                     <li class="nav-item  ">
                         <a href="{{route('company.index')}}" class="nav-link ">
-                            <i class="icon-home"></i>
+                            <i class="icon-energy"></i>
                             <span class="title">Empresa</span>
                         </a>
                     </li>
@@ -57,6 +58,13 @@
                         <a href="{{route('clients.index')}}" class="nav-link ">
                             <i class="icon-bulb"></i>
                             <span class="title">Clientes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  ">
+
+                        <a href="{{route('service.index')}}" class="nav-link ">
+                            <i class="icon-puzzle"></i>
+                            <span class="title">Servicios</span>
                         </a>
                     </li>
                 </ul>

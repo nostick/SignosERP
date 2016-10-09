@@ -78,10 +78,10 @@
 
 
     </div>
-@endsection
 
-<!--Modals Include Section-->
-@include('administration.client.modals.delete-confirm')
+    <!--Modals Include Section-->
+    @include('administration.client.modals.delete-confirm')
+@endsection
 
 @section('after-scripts')
     @include('administration.client.scripts.tableScripts')

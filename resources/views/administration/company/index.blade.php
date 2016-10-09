@@ -151,10 +151,10 @@
             </div>
         </div>
     </div>
-@endsection
 
-<!--Modals Include Section-->
-@include('administration.company.modals.delete-confirm')
+    <!--Modals Include Section-->
+    @include('administration.company.modals.delete-confirm')
+@endsection
 
 @section('after-scripts')
     @include('administration.company.scripts.table')

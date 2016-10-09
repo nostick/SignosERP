@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateResponsiblesTable extends Migration
+class CreateServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +15,16 @@ class CreateResponsiblesTable extends Migration
     {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
 
-        Schema::create('responsibles', function (Blueprint $table) {
+        Schema::create('services', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('social_rason');
-            $table->string('cuit');
-            $table->string('address');
+            $table->string('name');
+            $table->string('description');
+            $table->integer('price');
+            $table->char('cycle');
+            $table->boolean('status');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories_services')->onDelete('cascade');
+            $table->date('creation_date');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });
@@ -34,6 +39,6 @@ class CreateResponsiblesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('responsibles');
+        Schema::drop('services');
     }
 }
