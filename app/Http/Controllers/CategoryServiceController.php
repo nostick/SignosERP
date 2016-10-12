@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategoryService;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -32,9 +33,12 @@ class CategoryServiceController extends Controller
 
         CategoryService::create($input);
 
+        $services = Service::all();
+
         return view('administration.service.index')
+                        ->with('services',$services)
                         ->with('success',true)
-                        ->with('save','store');
+                        ->with('save','storeCat');
     }
 
     public function edit(){

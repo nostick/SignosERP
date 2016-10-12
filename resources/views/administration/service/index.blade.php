@@ -132,6 +132,10 @@
                 case 'update':
                     toastr.success("El registro ha sido actualizado con exito!", "Servicio Editado");
                     break;
+
+                case 'storeCat':
+                    toastr.success("El registro ha sido guardado con exito!", "Nueva Categoria Creada");
+                    break;
             }
         }
 
