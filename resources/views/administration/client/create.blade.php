@@ -5,11 +5,13 @@
 @endsection
 
 @section('content')
+
+    @include('administration.client.partials.breadcrum',['line' => 'Agregar nuevo'])
+
     <h1 class="page-title"> Compañias
         <small>detalle y listado de las compañias</small>
     </h1>
 
-    @include('administration.client.partials.breadcrum',['line' => 'Agregar nuevo'])
 
     <div class="row">
         <div class="portlet light ">

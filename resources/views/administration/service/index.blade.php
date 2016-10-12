@@ -23,7 +23,7 @@
                         <i class="icon-puzzle"></i>Servicios</div>
                     <div class="tools">
                     </div>
-                    <a href="{{route('clients.create')}}" class="btn btn-outline btn-circle btn-md blue pull-right">
+                    <a href="{{route('service.create')}}" class="btn btn-outline btn-circle btn-md blue pull-right">
                         <i class="fa fa-plus"></i> Agregar Servicio</a>
                     <a href="#" class="btn btn-outline btn-circle btn-md purple-plum pull-right" style="margin-right: 5px;" id="addBtnCategory">
                         <i class="fa fa-plus"></i> Agregar Categoria</a>
@@ -40,20 +40,48 @@
                         </div>
                     </form>
                     <div class="table-scrollable">
-                        <table class="table table-striped table-bordered table-advance table-hover" id="client-table">
+                        <table class="table table-striped table-bordered table-advance table-hover" id="service-table">
                             <thead >
                             <tr >
                                 <th style="background-color: #0d638f !important; color: #ffffff">
-                                    <i class="fa fa-tag"></i> Item </th>
-                                <th class="hidden-xs" style="background-color: #0d638f !important; color: #ffffff">
-                                    <i class="fa fa-user"></i> Nombre Cliente </th>
+                                    <i class="fa fa-tag"></i> Categoria </th>
                                 <th style="background-color: #0d638f !important; color: #ffffff">
-                                    <i class="fa fa-briefcase"></i> Nombre Empresa </th>
+                                    <i class="fa fa-book"></i> Servicio </th>
+                                <th style="background-color: #0d638f !important; color: #ffffff">
+                                    <i class="fa fa-history"></i> Ciclo</th>
+                                <th style="background-color: #0d638f !important; color: #ffffff">
+                                    <i class="fa fa-circle-o"></i> Estatus</th>
                                 <th style="background-color: #0d638f !important; color: #ffffff">Opciones </th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php $count = 0;?>
+                            @foreach($services as $service)
+                                <tr>
+                                    <td>{{$service->category->name}}</td>
+                                    <td data-service="{{$service->id}}">{{$service->name}}</td>
+                                    <td>{{$service->cycle}}</td>
+                                    @if($service->status)
+                                        <td>Activo</td>
+                                    @else
+                                        <td>Suspendido</td>
+                                    @endif
+                                    <td width="300px" class="text-center">
+                                        <a href="{{route('service.edit',$service->id)}}" class="btn btn-outline btn-circle btn-sm blue">
+                                            <i class="fa fa-edit"></i> Editar </a>
+                                        <a href="#" class="btn btn-outline btn-circle btn-sm red delete">
+                                            <i class="fa fa-trash-o"></i> Eliminar </a>
+
+                                        @if($service->status)
+                                        <a href="#" class="btn btn-outline btn-circle btn-sm dark suspend">
+                                            <i class="fa fa-user-times"></i> Suspender </a>
+                                        @else
+                                            <a href="#" class="btn btn-outline btn-circle btn-sm green-jungle suspend">
+                                                <i class="fa fa-user"></i> Activar </a>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach    
                             </tbody>
                         </table>
                     </div>
@@ -66,10 +94,13 @@
     </div>
 
     @include('administration.service.modals.add-category-confirm')
+    @include('administration.service.modals.delete-confirm')
+    @include('administration.service.modals.suspend-confirm')
 @endsection
 
 @section('after-scripts')
     @include('administration.service.scripts.functions')
+    @include('administration.service.scripts.tableScript')
     <script>
         if('{{$success}}' == 1){
 
@@ -95,13 +126,15 @@
 
             switch('{{$save}}'){
                 case 'store':
-                    toastr.success("El registro ha sido guardado con exito!", "Nueva Categoria Creada");
+                    toastr.success("El registro ha sido guardado con exito!", "Nuevo Servicio Creado");
                     break;
 
                 case 'update':
-                    toastr.success("El registro ha sido actualizado con exito!", "Cliente Editado");
+                    toastr.success("El registro ha sido actualizado con exito!", "Servicio Editado");
                     break;
             }
         }
+
+
     </script>
 @endsection

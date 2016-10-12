@@ -29,5 +29,6 @@ Route::post('clients/suspend/{client}', 'ClientController@suspend');
 Route::resource('clients','ClientController');
 
 //Lista de rutas para Servicios
+Route::post('service/suspend/{service}','ServiceController@suspend');
 Route::resource('service','ServiceController');
 Route::resource('service/category','CategoryServiceController',['as' => 'service']);

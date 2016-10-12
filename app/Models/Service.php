@@ -20,22 +20,16 @@ class Service extends Model
      */
     protected $fillable =[
         'name',
-        'last_name',
-        'company',
-        'responsible',
-        'responsible_id',
-        'home_phone',
-        'mobile_phone',
-        'email',
-        'address',
-        'type'
+        'description',
+        'category_id',
+        'cycle',
+        'status',
+        'price',
+        'creation_date'
     ];
 
-    public function company(){
-        return $this->belongsTo('App\Models\Company');
+    public function category(){
+        return $this->belongsTo('App\Models\CategoryService');
     }
 
-    public function responsibleType(){
-        return $this->hasOne('App\Models\Responsibles','id','responsible_id');
-    }
 }

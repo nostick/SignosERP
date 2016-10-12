@@ -24,8 +24,8 @@
                 <br><br>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn dark btn-outline pull-left" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn green btn-outline" id="add-confirm" data-token="{{ csrf_token() }}">Crear</button>
+                <button type="button" class="btn dark btn-outline pull-left btn-circle" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn green btn-outline btn-circle" id="add-confirm" data-token="{{ csrf_token() }}">Crear</button>
             </div>
         </div>
         </form>
