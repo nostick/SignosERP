@@ -35,10 +35,11 @@ class CategoryServiceController extends Controller
 
         $services = Service::all();
 
-        return view('administration.service.index')
-                        ->with('services',$services)
-                        ->with('success',true)
-                        ->with('save','storeCat');
+        return redirect('/service')
+                             ->with('services',$services)
+                             ->with('success',true)
+                             ->with('save','storeCat');
+
     }
 
     public function edit(){
