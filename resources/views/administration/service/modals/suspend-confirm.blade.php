@@ -6,7 +6,7 @@
                 <h4 class="modal-title">Confirmacion de Suspencion</h4>
             </div>
             <div class="modal-body">
-                @if($service->status == true)
+                @if(isset($service) && $service->status == true)
                     Esta seguro que desea suspender este servicio?
                 @else
                     Esta seguro que desea quitar la suspension a este servicio?
@@ -14,7 +14,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn dark btn-outline btn-circle" data-dismiss="modal">Cerrar</button>
-                @if($service->status == true)
+                @if(isset($service) && $service->status == true)
                 <button type="submit" class="btn red btn-outline btn-circle" id="suspend-confirm" data-token="{{ csrf_token() }}">
                         Suspender
                 </button>
