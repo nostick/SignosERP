@@ -6,23 +6,21 @@
                 <h4 class="modal-title">Confirmacion de Suspencion</h4>
             </div>
             <div class="modal-body">
-                @if(isset($service) && $service->status == true)
-                    Esta seguro que desea suspender este servicio?
-                @else
-                    Esta seguro que desea quitar la suspension a este servicio?
-                @endif
+                <p id="suspending" style="display: none">Esta seguro que desea suspender este servicio?</p>
+                <p id="activating" style="display: none">Esta seguro que desea activar este servicio?</p>
+
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn dark btn-outline btn-circle" data-dismiss="modal">Cerrar</button>
-                @if(isset($service) && $service->status == true)
-                <button type="submit" class="btn red btn-outline btn-circle" id="suspend-confirm" data-token="{{ csrf_token() }}">
+                <button type="button" class="btn dark btn-outline btn-circle pull-left" data-dismiss="modal">Cerrar</button>
+
+                <button style="display: none" type="submit" class="btn red btn-outline btn-circle pull-right" id="suspend-confirm-1" data-token="{{ csrf_token() }}">
                         Suspender
                 </button>
-                @else
-                    <button type="submit" class="btn btn-outline btn-circle green-jungle " id="suspend-confirm" data-token="{{ csrf_token() }}">
+
+                    <button style="display: none" type="submit" class="btn btn-outline btn-circle green-jungle pull-right" id="suspend-confirm-2" data-token="{{ csrf_token() }}">
                         Activar
                     </button>
-                @endif
+
             </div>
         </div>
         <!-- /.modal-content -->

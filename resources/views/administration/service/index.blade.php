@@ -59,7 +59,7 @@
                             @foreach($services as $service)
                                 <tr>
                                     <td>{{$service->category->name}}</td>
-                                    <td data-service="{{$service->id}}">{{$service->name}}</td>
+                                    <td data-service="{{$service->id}}" data-status="{{$service->status}}">{{$service->name}}</td>
                                     <td>{{$service->cycle}}</td>
                                     @if($service->status)
                                         <td>Activo</td>

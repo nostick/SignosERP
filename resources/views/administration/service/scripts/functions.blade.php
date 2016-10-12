@@ -1,7 +1,7 @@
 <script>
 
     //Abrir modal de crear categoria en index
-    $('#addBtnCategory').on('click',function(){
+    $('.addBtnCategory').on('click',function(){
         $('#category-add').modal('show');
     });
 
@@ -72,11 +72,25 @@
     //Suspender o Activar Servicio
     $('.suspend').on('click',function(){
         var $item = $(this).closest("tr").find("td:nth-child(2)").data('service');
+        var $status = $(this).closest("tr").find("td:nth-child(2)").data('status');
+
+        if($status == 1){
+            $('#suspending').css('display','block');
+            $('#activating').css('display','none');
+            $('#suspend-confirm-1').css('display','block');
+            $('#suspend-confirm-2').css('display','none');
+        }else{
+            $('#suspending').css('display','none');
+            $('#activating').css('display','block');
+            $('#suspend-confirm-1').css('display','none');
+            $('#suspend-confirm-2').css('display','block');
+        }
+
         $('#service-suspend-item').attr("data-service",$item);
         $('#service-suspend-item').modal('show');
     });
 
-    $('#suspend-confirm').on('click',function(e){
+    $('#suspend-confirm-1,#suspend-confirm-2').on('click',function(e){
         e.preventDefault();
 
         var $item = $('#service-suspend-item').attr("data-service");
